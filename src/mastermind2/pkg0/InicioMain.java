@@ -142,7 +142,7 @@ public class InicioMain extends javax.swing.JFrame {
     }//GEN-LAST:event_boton_HardcoreActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(this, "1º Selecciones la dificultad deseada.\n"
+        JOptionPane.showMessageDialog(this, "1º Selecciona la dificultad deseada.\n"
                 + "   - Normal: 4 Colores y 8 intentos máximo.\n"
                 + "       Puntuación máxima: 700000 puntos\n"        
                 + "   - Dificil: 6 Colores y 12 intentos máximo.\n"
@@ -150,10 +150,12 @@ public class InicioMain extends javax.swing.JFrame {
                 + "   - Hardcore: 8 Colores y 12 intentos máximo.\n"
                 + "       Puntuación máxima: 3400000 puntos\n"
                 + "2º Pulsa el botón Iniciar Juego y el el tiempo empezara a contar.\n"
-                + "3º Rellena la fila de abajo, pulsando en el color deseado.\n"
-                + " y a continuación en uno de los recuadros en blanco.\n"
-                + "4º Pulsa el botón Comprobar y te los aciertos se mostrarán a la derecha.\n"
-                + "5º Repite los pasos 3 y 4 hasta que aciertes la combinación o te quedes sin intentos.\n"
+                + "3º Rellena la fila de abajo, pulsando en el color deseado\n"
+                + " y a continuación en cada uno de los recuadros en blanco.\n"
+                + "4º Pulsa el botón Comprobar y los aciertos se mostrarán a la derecha.\n"
+                + "5º Repite los pasos 3 y 4 con las filas siguientes, hasta que aciertes la combinación\n"
+                + " o te quedes sin intentos.\n"
+                + "6º El juego terminará cuando adivines la secuencia secreta o te quedes sin filas.\n"
                 + "6º En cualquier momento puedes pulsar el botón Reiniciar Juego para volver al menu.\n\n"
                 + "                                            ¡Que se divierta!");
     }//GEN-LAST:event_jButton1ActionPerformed
