@@ -5,6 +5,7 @@
  */
 package mastermind2.pkg0;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,7 +26,8 @@ public class InicioMain extends javax.swing.JFrame {
      */
     public InicioMain() {
         initComponents();
-        setLocationRelativeTo(null);        
+        setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/icon.png")).getImage());
     }   
 
     /**
@@ -45,6 +47,7 @@ public class InicioMain extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("MasterMind");
         setResizable(false);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/mastermind.jpg"))); // NOI18N

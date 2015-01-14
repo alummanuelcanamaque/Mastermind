@@ -7,6 +7,7 @@ package mastermind2.pkg0;
 
 import java.awt.Color;
 import java.util.Random;
+import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -26,10 +27,12 @@ public class MasterMind extends javax.swing.JFrame {
     int dificultad;
     int fila = 0;
     long puntuacion;
-
+    
+    //Clases para el contar el tiempo transcurrido
     StopWatch reloj = new StopWatch();
     DurationFormatUtils formato = new DurationFormatUtils();
-
+    
+    //Declaramos los arrays
     JLabel[] secuencia;
     JLabel[] fila1, fila2, fila3, fila4, fila5, fila6, fila7,
             fila8, fila9, fila10, fila11, fila12;
@@ -102,12 +105,13 @@ public class MasterMind extends javax.swing.JFrame {
         this.comprobar11 = comprobar11;
         this.comprobar12 = comprobar12;
 
-        //Ejecutamos el menu inicio, obtenemos la dificultad y ocultamos los botones segun la dificultad        
+        //Obtenemos la dificultad y iniciamos la ventana       
         for (int i = 0; i < 8; i++) {
             secuencia[i].setVisible(false);
         }
         this.dificultad = dificultad;
         setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/icon.png")).getImage());
         if (dificultad == 4) {
             this.setSize(382, 600);
         }
@@ -365,7 +369,13 @@ public class MasterMind extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("MasterMind");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         f1c1.setBackground(java.awt.Color.white);
         f1c1.setAlignmentX(0.5F);
@@ -536,10 +546,8 @@ public class MasterMind extends javax.swing.JFrame {
         );
 
         cyan.setBackground(java.awt.Color.cyan);
-        cyan.setForeground(java.awt.Color.lightGray);
         cyan.setBorder(new javax.swing.border.MatteBorder(null));
         cyan.setBorderPainted(false);
-        cyan.setOpaque(true);
         cyan.setPreferredSize(new java.awt.Dimension(40, 40));
         cyan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -551,7 +559,6 @@ public class MasterMind extends javax.swing.JFrame {
         magenta.setForeground(java.awt.Color.lightGray);
         magenta.setBorder(new javax.swing.border.MatteBorder(null));
         magenta.setBorderPainted(false);
-        magenta.setOpaque(true);
         magenta.setPreferredSize(new java.awt.Dimension(40, 40));
         magenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -563,7 +570,6 @@ public class MasterMind extends javax.swing.JFrame {
         naranja.setForeground(java.awt.Color.lightGray);
         naranja.setBorder(new javax.swing.border.MatteBorder(null));
         naranja.setBorderPainted(false);
-        naranja.setOpaque(true);
         naranja.setPreferredSize(new java.awt.Dimension(40, 40));
         naranja.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -575,7 +581,6 @@ public class MasterMind extends javax.swing.JFrame {
         rosa.setForeground(java.awt.Color.lightGray);
         rosa.setBorder(new javax.swing.border.MatteBorder(null));
         rosa.setBorderPainted(false);
-        rosa.setOpaque(true);
         rosa.setPreferredSize(new java.awt.Dimension(40, 40));
         rosa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -587,7 +592,6 @@ public class MasterMind extends javax.swing.JFrame {
         rojo.setForeground(java.awt.Color.lightGray);
         rojo.setBorder(new javax.swing.border.MatteBorder(null));
         rojo.setBorderPainted(false);
-        rojo.setOpaque(true);
         rojo.setPreferredSize(new java.awt.Dimension(40, 40));
         rojo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -599,7 +603,6 @@ public class MasterMind extends javax.swing.JFrame {
         amarillo.setForeground(java.awt.Color.lightGray);
         amarillo.setBorder(new javax.swing.border.MatteBorder(null));
         amarillo.setBorderPainted(false);
-        amarillo.setOpaque(true);
         amarillo.setPreferredSize(new java.awt.Dimension(40, 40));
         amarillo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -611,7 +614,6 @@ public class MasterMind extends javax.swing.JFrame {
         verde.setForeground(java.awt.Color.lightGray);
         verde.setBorder(new javax.swing.border.MatteBorder(null));
         verde.setBorderPainted(false);
-        verde.setOpaque(true);
         verde.setPreferredSize(new java.awt.Dimension(40, 40));
         verde.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -622,7 +624,7 @@ public class MasterMind extends javax.swing.JFrame {
         azul.setBackground(java.awt.Color.blue);
         azul.setForeground(java.awt.Color.lightGray);
         azul.setBorder(new javax.swing.border.MatteBorder(null));
-        azul.setOpaque(true);
+        azul.setBorderPainted(false);
         azul.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 azulActionPerformed(evt);
@@ -2615,9 +2617,8 @@ public class MasterMind extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(c1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(c8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(c7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(c8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(c7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(c2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(c3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(c4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3374,7 +3375,7 @@ public class MasterMind extends javax.swing.JFrame {
 
                     break;
                 } else {
-                    fila--;
+                    fila--;                    
                     break;
                 }
             case 12:
@@ -3414,10 +3415,14 @@ public class MasterMind extends javax.swing.JFrame {
 
                     break;
                 } else {
-                    fila--;
+                    fila--;                    
                     break;
                 }
 
+        }
+        //Si no se ha coloreado ningun recuadro mostramos un mensaje de aviso
+        if(blanco==true){
+            JOptionPane.showMessageDialog(this, "Debe colorear al menos un recuadro para poder comprobar la fila.");
         }
         //Comprobamos si finaliza la partida y mostramos la solución.
         if (contador == dificultad) {
@@ -3435,7 +3440,8 @@ public class MasterMind extends javax.swing.JFrame {
         System.out.println("Puntuación:" + this.calcularPuntuacion());
         
     }//GEN-LAST:event_boton_ComprobarActionPerformed
-
+    
+    //Metodo para reiniciar y volver al menu
     private void boton_ReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_ReiniciarActionPerformed
         int opcion = JOptionPane.showConfirmDialog(this, "¿Está seguro de que quiere reiniciar el juego?", "Reiniciar", 0);
         if (opcion == 0) {
@@ -3446,6 +3452,7 @@ public class MasterMind extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_boton_ReiniciarActionPerformed
 
+    //Metodo para iniciar el juego
     private void boton_IniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_IniciarActionPerformed
         if (reloj.isStarted()) {
             reloj.stop();
@@ -3726,8 +3733,12 @@ public class MasterMind extends javax.swing.JFrame {
             f9c1.setBackground(color);
         }
     }//GEN-LAST:event_f9c1MousePressed
-//Metodo para habilitar todos los botones menos el boton inicio
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        this.close();
+    }//GEN-LAST:event_formWindowClosing
+
+    //Metodo para habilitar todos los botones menos el boton inicio
     public void habilitarTodo() {
         boton_Iniciar.setEnabled(false);
         boton_Reiniciar.setEnabled(true);
@@ -3757,8 +3768,8 @@ public class MasterMind extends javax.swing.JFrame {
         }
     }
 
+    
     //Metodo para deshabilitar todos los botones menos el boton inicio
-
     public void deshabilitarTodo() {
         boton_Iniciar.setEnabled(true);
         boton_Reiniciar.setEnabled(false);
@@ -3903,7 +3914,8 @@ public class MasterMind extends javax.swing.JFrame {
                 break;
         }
     }
-
+    
+    //Metodo para calcular la puntuacion segun el tiempo usado y las filas sobrantes
     public long calcularPuntuacion() {
         long puntuacion = 0;
         switch(dificultad){
@@ -3927,7 +3939,14 @@ public class MasterMind extends javax.swing.JFrame {
         
 
     }
-
+    
+    //Metodo para mostrar aviso al cerrar el programa
+    private void close(){
+        if (JOptionPane.showConfirmDialog(this, "¿Esta seguro de que desea cerrar Mastermind?",
+                "Cerrar Mastermind", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION)
+            System.exit(0);
+    }
+    //Metodo para Iniciar la partida
     public void iniciarPartida() {
         //Generacion de secuencia secreta y coloreado de los labels 
         contraseña = "";
